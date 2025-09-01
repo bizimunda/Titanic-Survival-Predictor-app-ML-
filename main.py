@@ -63,8 +63,16 @@ if selected_features:
     st.write(f"**Accuracy:** {acc:.2f}")
 
     cm = confusion_matrix(y_test, y_pred)
-    cm_df = pd.DataFrame(cm, index=["Died", "Survived"], columns=["Predicted Died", "Predicted Survived"])
-    fig = px.imshow(cm_df, text_auto=True, color_continuous_scale="Blues", title="Confusion Matrix")
+    cm_df = pd.DataFrame(
+        cm,
+        index=["Died", "Survived"],
+        columns=["Predicted Died", "Predicted Survived"]
+    )
+    fig = px.imshow(
+        cm_df, text_auto=True,
+        color_continuous_scale="Blues",
+        title="Confusion Matrix"
+    )
     st.plotly_chart(fig)
 
     # -----------------------
@@ -74,7 +82,17 @@ if selected_features:
 
     input_data = {}
     for feature in selected_features:
-        if feature in ["Sex", "Embarked", "Pclass"]:
+        if feature == "Pclass":
+            val = st.number_input("Passenger Class", min_value=1, max_value=3, step=1, value=3)
+        elif feature == "Age":
+            val = st.number_input("Age", min_value=0, max_value=80, step=1, value=30)
+        elif feature == "SibSp":
+            val = st.number_input("Siblings/Spouses Aboard", min_value=0, max_value=10, step=1, value=0)
+        elif feature == "Parch":
+            val = st.number_input("Parents/Children Aboard", min_value=0, max_value=10, step=1, value=0)
+        elif feature == "Fare":
+            val = st.number_input("Fare", min_value=0.0, max_value=500.0, step=0.1, value=30.0)
+        elif feature in ["Sex", "Embarked"]:
             val = st.selectbox(f"{feature}", df[feature].dropna().unique())
         else:
             val = st.number_input(f"{feature}", float(df[feature].min()), float(df[feature].max()))
