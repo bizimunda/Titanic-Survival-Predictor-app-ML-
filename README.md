@@ -15,11 +15,12 @@ A **mobile-friendly Streamlit app** that predicts whether a Titanic passenger wo
 
 ## 📷 Screenshots
 
-### Model Performace
-<img src="https://raw.githubusercontent.com/bizimunda/Titanic-Survival-Predictor-app-ML-/model_performance.png" width="500"/>
+### Model Performance
+![Model Performance](https://raw.githubusercontent.com/bizimunda/Titanic-Survival-Predictor-app-ML-/main/model_performance.png)
 
-### Predictor survival
-<img src="https://raw.githubusercontent.com/bizimunda/Titanic-Survival-Predictor-app-ML-/predictor_survival.png" width="500"/>
+### Prediction Page
+![Prediction Page](https://raw.githubusercontent.com/bizimunda/Titanic-Survival-Predictor-app-ML-/main/predictor_survival.png)
+
 
 ---
 
